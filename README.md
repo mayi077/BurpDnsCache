@@ -5,7 +5,8 @@ Modify DNS resolution rules in BurpSuite
 当然也尝试过通过修改 java的JVM DNS缓存配置（openjdk 15 - burp2021，openjdk1.8 - burp2.1.06）:
 - 应用启动时, 设置启动参数例如  `-Dnetworkaddress.cache.ttl=0 -Dnetworkaddress.cache.negative.ttl=0`
 - 设置JVM配置，例如编辑$JRE_HOME/lib/security/java.security 文件,   `networkaddress.cache.negative.ttl=0`  `networkaddress.cache.ttl=0`
-当时均未成功，故想到了在BurpSuite中编写一款插件，修改Dns解析记录，也不需要在机器上直接修改hosts了。
+
+> 当时均未成功，故想到了在BurpSuite中编写一款插件，修改Dns解析记录，也不需要在机器上直接修改hosts了。
 # 使用说明
 1. burpsuite -> Extender -> Extensions -> Add ,然后在Extension File处选中此jar文件![image](https://github.com/mayi077/BurpDnsCache/assets/71206205/10c66f7e-8b8b-44b7-9c9f-5102a6dcce24)
 2. 随后菜单栏会出现 DNS Cache 这个Tab，只需在此填写host后点击Submint即可 ![image](https://github.com/mayi077/BurpDnsCache/assets/71206205/d58eb58f-4501-4c7d-aab0-9a44d6e03098)
